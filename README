@@ -1,0 +1,17 @@
+This is the instruction how to deploy current application.
+
+System requirements:
+
+1. JDK 1.8.0 Update 91
+2. GlassFish 4.1.1
+3. Maven 3.3.9
+
+Check the existing of the next environment variables:
+1. JAVA_HOME
+2. GLASSFISH_HOME
+3. DERBY_HOME
+4. M2_HOME
+
+Add all of this variables to PATH variable.
+
+Then you need to create the database for application. The script create_database.sql in src/main/resources/ folder describes how to do it.
