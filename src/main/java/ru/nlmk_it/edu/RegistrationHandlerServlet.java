@@ -16,7 +16,7 @@ import javax.transaction.UserTransaction;
 
 import ru.nlmk_it.edu.entities.User;
 
-@WebServlet(name = "RegistrationHandlerServlet", urlPatterns = {"/rhs"})
+//@WebServlet(name = "RegistrationHandlerServlet", urlPatterns = {"/rhs"})
 public class RegistrationHandlerServlet extends HttpServlet {
     
     @PersistenceUnit(name = "simpleWebPersistenceUnit")

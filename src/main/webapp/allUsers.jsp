@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+<%@ page import="java.util.List"%>
+<%@ page import="ru.nlmk_it.edu.entities.User"%>
 <!DOCTYPE html>
 
 <html>
@@ -9,14 +10,6 @@
     </head>
     <body>
         <h3>The list of users:</h3>
-    
-        <sql:setDataSource var="snapshot" driver="org.apache.derby.jdbc.ClientDriver"
-             url="jdbc:derby://localhost:1527/simplewebdb"
-             user="simple"  password="simple"/>
-        
-        <sql:query dataSource="${snapshot}" var="result">
-            select * from users
-        </sql:query>
         
         <table border="1">
             <thead>
@@ -28,14 +21,20 @@
                 </tr>
             </thead>
             <tbody>
-            <c:forEach var="row" items="${result.rows}">
+            
+                <%
+                    List<User> userList = (List<User>) request.getAttribute("userList");
+                    for (User user: userList) {
+                %>
                 <tr>
-                    <td><c:out value="${row.user_id}"/></td>
-                    <td><c:out value="${row.first_name}"/></td>
-                    <td><c:out value="${row.last_name}"/></td>
-                    <td><c:out value="${row.email}"/></td>
+                    <td><%= user.getUserId() %></td>
+                    <td><%= user.getFirstName() %></td>
+                    <td><%= user.getLastName() %></td>
+                    <td><%= user.getEmail() %></td>
                 </tr>
-            </c:forEach>
+                <%
+                    }
+                %>
             </tbody>
         </table>
     </body>
