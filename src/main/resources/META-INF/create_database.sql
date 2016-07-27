@@ -61,7 +61,9 @@ connect 'jdbc:derby://localhost:1527/simplewebdb;user=simple;password=simple';
 create table USERS (USER_ID int primary key,
                     FIRST_NAME varchar(60) not null default 'N/A',
                     LAST_NAME varchar(60) not null default 'N/A',
-                    EMAIL varchar(60) not null default 'N/A');
+                    EMAIL varchar(60) not null default 'N/A',
+                    REG_DATE date not null default current_date,
+                    REG_TIME time not null default current_time);
 
 -- Create sequence for the USERS table
 create sequence SEQ_USERS minvalue 1 maxvalue 99999999 start with 1 increment by 1;

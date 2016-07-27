@@ -31,6 +31,18 @@ public class User implements java.io.Serializable {
     @Column(name = "EMAIL", nullable = false)
     private String email;
     
+    @Column(name = "REG_DATE")
+    private java.sql.Date registerDate;
+    
+    @Column(name = "REG_TIME")
+    private java.sql.Time registerTime;
+    
+    {
+        long currentMoment = new java.util.Date().getTime();
+        registerDate = new java.sql.Date(currentMoment);
+        registerTime = new java.sql.Time(currentMoment);
+    }
+    
     public Long getUserId() {
         return userId;
     }
@@ -74,5 +86,21 @@ public class User implements java.io.Serializable {
         } else {
             this.email = email;
         }
+    }
+    
+    public java.sql.Date getRegisterDate() {
+        return registerDate;
+    }
+    
+    public void setRegisterDate(java.sql.Date registerDate) {
+        this.registerDate = registerDate;
+    }
+    
+    public java.sql.Time getRegisterTime() {
+        return registerTime;
+    }
+    
+    public void setRegisterTime(java.sql.Time registerTime) {
+        this.registerTime = registerTime;
     }
 }

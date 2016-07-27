@@ -14,10 +14,12 @@
         <table border="1">
             <thead>
                 <tr>
-                   <th>User ID</th>
-                   <th>First Name</th>
-                   <th>Last Name</th>
-                   <th>Email</th>
+                    <th>User ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Registration Date</th>
+                    <th>Registration Time</th>
                 </tr>
             </thead>
             <tbody>
@@ -31,6 +33,8 @@
                     <td><%= user.getFirstName() %></td>
                     <td><%= user.getLastName() %></td>
                     <td><%= user.getEmail() %></td>
+                    <td><%= user.getRegisterDate() %></td>
+                    <td><%= user.getRegisterTime() %></td>
                 </tr>
                 <%
                     }
