@@ -53,13 +53,15 @@ public class RegistrationHandlerServlet extends HttpServlet {
             
             userTransaction.commit();
             
-            //
-            
             request.setAttribute("firstName", sameUser.getFirstName());
             request.setAttribute("lastName", sameUser.getLastName());
             request.setAttribute("email", sameUser.getEmail());
             
             request.getRequestDispatcher("/WEB-INF/registration_ok.jsp").forward(request, response);
+        } catch (javax.validation.ConstraintViolationException e) {
+            request.setAttribute("errorMessage", "Some of required fields did not fill out.");
+            request.getRequestDispatcher("/WEB-INF/registration_failed.jsp").forward(request, response);
+            
         } catch (Exception e) {
             StringWriter sw = new StringWriter();
             PrintWriter pw = new PrintWriter(sw);

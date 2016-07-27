@@ -29,6 +29,6 @@ public class AllUsersServlet extends HttpServlet {
         List<User> userList = query.getResultList();
         
         request.setAttribute("userList", userList);
-        request.getRequestDispatcher("allUsers.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/allUsers.jsp").forward(request, response);
     }
 }

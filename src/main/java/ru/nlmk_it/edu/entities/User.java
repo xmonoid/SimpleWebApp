@@ -20,15 +20,15 @@ public class User implements java.io.Serializable {
     private Long userId;
     
     @NotNull
-    @Column(name = "FIRST_NAME")
+    @Column(name = "FIRST_NAME", nullable = false)
     private String firstName;
     
     @NotNull
-    @Column(name = "LAST_NAME")
+    @Column(name = "LAST_NAME", nullable = false)
     private String lastName;
     
     @NotNull
-    @Column(name = "EMAIL")
+    @Column(name = "EMAIL", nullable = false)
     private String email;
     
     public Long getUserId() {
@@ -44,7 +44,12 @@ public class User implements java.io.Serializable {
     }
     
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        
+        if (firstName != null && firstName.trim().equalsIgnoreCase("")) {
+            this.firstName = null;
+        } else {
+            this.firstName = firstName;
+        }
     }
     
     public String getLastName() {
@@ -52,7 +57,11 @@ public class User implements java.io.Serializable {
     }
     
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+        if (lastName != null && lastName.trim().equalsIgnoreCase("")) {
+            this.lastName = null;
+        } else {
+            this.lastName = lastName;
+        }
     }
     
     public String getEmail() {
@@ -60,6 +69,10 @@ public class User implements java.io.Serializable {
     }
     
     public void setEmail(String email) {
-        this.email = email;
+        if (email != null && email.trim().equalsIgnoreCase("")) {
+            this.email = null;
+        } else {
+            this.email = email;
+        }
     }
 }
