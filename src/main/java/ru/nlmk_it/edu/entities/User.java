@@ -38,7 +38,7 @@ public class User implements java.io.Serializable {
     private java.sql.Time registerTime;
     
     {
-        long currentMoment = new java.util.Date().getTime();
+        final long currentMoment = new java.util.Date().getTime();
         registerDate = new java.sql.Date(currentMoment);
         registerTime = new java.sql.Time(currentMoment);
     }
@@ -102,5 +102,36 @@ public class User implements java.io.Serializable {
     
     public void setRegisterTime(java.sql.Time registerTime) {
         this.registerTime = registerTime;
+    }
+    
+    @Override
+    public String toString() {
+        Long localUserId = userId;
+        String localFirstName = firstName;
+        String localLastName = lastName;
+        String localEmail = email;
+
+        if (localUserId == null) {
+            localUserId = 0L;
+        }
+
+        if (localEmail == null) {
+            localEmail = "";
+        }
+
+        if (localFirstName == null) {
+            localFirstName = "";
+        }
+        if (localLastName == null) {
+            localLastName = "";
+        }
+
+        StringBuilder result = new StringBuilder();
+        result.append("userId = ").append(localUserId).append("\n")
+              .append("firstName = ").append(localFirstName).append("\n")
+              .append("lastName = ").append(localLastName).append("\n")
+              .append("email = ").append(localEmail);
+
+        return result.toString();
     }
 }
