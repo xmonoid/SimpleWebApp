@@ -30,7 +30,7 @@
 
 -- 1. Change directory to [glassfish installation directory]/bin.
 -- 2. Execute the following command (without the quotes):
---    "./asadmin create-jdbc-connection-pool --datasourceclassname org.apache.derby.jdbc.ClientDataSource --restype javax.sql.DataSource --property DatabaseName=customerdb:User=dev:password=dev CustomerDBPool"
+--    "./asadmin create-jdbc-connection-pool --datasourceclassname org.apache.derby.jdbc.ClientDataSource --restype javax.sql.DataSource --property DatabaseName=simplewebdb:User=simple:password=simple SimpleWebDBPool"
 
 -- To create the datasource:
 
@@ -38,7 +38,7 @@
 
 -- 1. Change directory to [glassfish installation directory]/glassfish/bin.
 -- 2. Execute the following command (without the quotes):
---    "./asadmin create-jdbc-resource --connectionpoolid CustomerDBPool jdbc/__CustomerDBPool"
+--    "./asadmin create-jdbc-resource --connectionpoolid SimpleWebDBPool jdbc/__SimpleWebDBPool"
    
 -- After following all of the above steps. Examples using database connectivity should deploy and execute properly.
 
